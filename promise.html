@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I LOVE YOU JUNE ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #ffc0cb;
+    text-align: center;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* Title */
+.main-title {
+    position: fixed;
+    top: 20px;
+    width: 100%;
+    font-size: 32px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    z-index: 10;
+}
+
+/* Center Box */
+.container {
+    position: relative;
+    margin-top: 150px;
+    background: rgba(255, 255, 255, 0.25);
+    padding: 40px;
+    border-radius: 20px;
+    width: 80%;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    z-index: 10;
+}
+
+/* Button */
+button {
+    margin-top: 25px;
+    padding: 12px 30px;
+    font-size: 16px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    background-color: white;
+    color: #ff4d6d;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+/* Falling Hearts */
+.heart {
+    position: fixed;
+    top: -20px;
+    font-size: 20px;
+    animation: fall linear forwards;
+    z-index: 1;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh);
+        opacity: 0;
+    }
+}
+
+/* Hide video initially */
+#videoContainer {
+    display: none;
+    margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<h1 class="main-title">I LOVE YOU JUNE ❤️</h1>
+
+<div class="container">
+    <h2>
+        I promise you,<br>
+        I will never stop loving you,<br>
+        Until my last breath...!! ❤️
+    </h2>
+
+    <button onclick="playSong()">Click Here 🎵</button>
+
+    <div id="videoContainer">
+        <iframe width="300" height="170"
+            src="https://www.youtube.com/embed/zgaCZOQCpp8?autoplay=1"
+            frameborder="0"
+            allow="autoplay; encrypted-media"
+            allowfullscreen>
+        </iframe>
+    </div>
+</div>
+
+<script>
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 5000);
+}
+
+setInterval(createHeart, 250);
+
+function playSong() {
+    document.getElementById("videoContainer").style.display = "block";
+}
+</script>
+
+</body>
+</html>
